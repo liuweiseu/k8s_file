@@ -1,0 +1,3 @@
+[submodule "ubuntu-cuda-11.4"]
+	path = ubuntu-cuda-11.4
+	url = https://gitlab.nrp-nautilus.io/weiliu/ubuntu-cuda-11.4.git
