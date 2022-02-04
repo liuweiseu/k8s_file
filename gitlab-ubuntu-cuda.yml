@@ -3,10 +3,16 @@ kind: Pod
 metadata:
   name: ubuntu-cuda
 spec:
+  hostIPC: true
   containers:
   - name: gpu-container
     image: gitlab-registry.nrp-nautilus.io/weiliu/ubuntu-cuda-11.4:latest
+    volumeMounts:
+    - mountPath: /dev/shm
+      name: shm
     command: ["sleep", "infinity"]
+    securityContext:
+      privileged: true
     resources:
       limits:
         memory: 16Gi
@@ -14,6 +20,11 @@ spec:
       requests:
         memory: 16Gi
         nvidia.com/gpu: 1
+  volumes:
+    - name: shm
+      emptyDir:
+        medium: Memory
+        sizeLimit: 1024Mi
   imagePullSecrets:
   - name: regcredw
   spec:
@@ -26,3 +37,5 @@ spec:
             operator: In
             values:
             - 1080Ti
+
+    
