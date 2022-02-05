@@ -15,10 +15,10 @@ spec:
     resources:
       limits:
         memory: 16Gi
-        nvidia.com/gpu: 2
+        nvidia.com/gpu: 1
       requests:
         memory: 16Gi
-        nvidia.com/gpu: 2
+        nvidia.com/gpu: 1
   volumes:
     - name: shm
       emptyDir:
