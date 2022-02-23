@@ -10,6 +10,8 @@ spec:
     volumeMounts:
     - mountPath: /dev/shm
       name: shm
+    - mountPath: /mnt/data
+      name: data-vol
     command: ["sleep", "infinity"]
     securityContext:
       privileged: true
@@ -27,6 +29,9 @@ spec:
       emptyDir:
         medium: Memory
         sizeLimit: 1024Mi
+    - name: data-vol
+      persistentVolumeClaim:
+        claimName: data-pvc
   imagePullSecrets:
   - name: regcredw
   spec:
