@@ -3,25 +3,20 @@ kind: Pod
 metadata:
   name: ubuntu-cuda
 spec:
-  #hostIPC: true
   containers:
   - name: gpu-container
     image: gitlab-registry.nrp-nautilus.io/weiliu/ubuntu-cuda-11.4:latest
     volumeMounts:
     - mountPath: /dev/shm
       name: shm
-    - mountPath: /mnt/data
-      name: data-vol
     command: ["sleep", "infinity"]
     securityContext:
-      privileged: True
+      privileged: false
     resources:
       limits:
-        cpu: 4.0
         memory: 16Gi
         nvidia.com/gpu: 1
       requests:
-        cpu: 4.0
         memory: 16Gi
         nvidia.com/gpu: 1
   volumes:
@@ -29,9 +24,6 @@ spec:
       emptyDir:
         medium: Memory
         sizeLimit: 1024Mi
-    - name: data-vol
-      persistentVolumeClaim:
-        claimName: data-pvc
   imagePullSecrets:
   - name: regcredw
   spec:
@@ -40,9 +32,7 @@ spec:
       requiredDuringSchedulingIgnoredDuringExecution:
         nodeSelectorTerms:
         - matchExpressions:
-          - key: gpu-type
+          - key: nvidia.com/gpu.product
             operator: In
             values:
-            - 1080Ti
-
-    
+            - NVIDIA-GeForce-GTX-1080-Ti
