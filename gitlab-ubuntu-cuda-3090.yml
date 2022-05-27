@@ -9,6 +9,8 @@ spec:
     volumeMounts:
     - mountPath: /dev/shm
       name: shm
+    - mountPath: /mnt/data
+      name: data-vol
     command: ["sleep", "infinity"]
     securityContext:
       privileged: false
@@ -24,6 +26,9 @@ spec:
       emptyDir:
         medium: Memory
         sizeLimit: 1024Mi
+    - name: data-vol
+      persistentVolumeClaim:
+        claimName: data-pvc
   imagePullSecrets:
   - name: regcredw
   spec:
@@ -35,4 +40,4 @@ spec:
           - key: nvidia.com/gpu.product
             operator: In
             values:
-            - NVIDIA-GeForce-GTX-1080-Ti
+            - NVIDIA-GeForce-RTX-3090
