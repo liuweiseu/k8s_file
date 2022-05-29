@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ubuntu-cuda
+  name: ubuntu-cuda-11.4
 spec:
   containers:
   - name: gpu-container

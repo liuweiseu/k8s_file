@@ -1,3 +1,6 @@
 [submodule "ubuntu-cuda-11.4"]
 	path = ubuntu-cuda-11.4
 	url = https://gitlab.nrp-nautilus.io/weiliu/ubuntu-cuda-11.4.git
+[submodule "ubuntu-cuda-11.6"]
+	path = ubuntu-cuda-11.6
+	url = ssh://git@gitlab-ssh.nrp-nautilus.io:30622/weiliu/ubuntu-cuda-11.6.git

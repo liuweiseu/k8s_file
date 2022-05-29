@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ubuntu-cuda
+  name: ubuntu-cuda-11.6
 spec:
   containers:
   - name: gpu-container
-    image: gitlab-registry.nrp-nautilus.io/weiliu/ubuntu-cuda-11.4:latest
+    image: gitlab-registry.nrp-nautilus.io/weiliu/ubuntu-cuda-11.6:latest
     volumeMounts:
     - mountPath: /dev/shm
       name: shm
