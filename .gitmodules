@@ -8,3 +8,9 @@
 [submodule "onehundredgbe"]
 	path = onehundredgbe
 	url = https://gitlab.nrp-nautilus.io/weiliu/onehundredgbe.git
+[submodule "ubuntu-cuda-12.1"]
+	path = ubuntu-cuda-12.1
+	url = ssh://git@gitlab-ssh.nrp-nautilus.io:30622/weiliu/ubuntu-cuda-12.1.git
+[submodule "ubuntu-cuda-11.8"]
+	path = ubuntu-cuda-11.8
+	url = ssh://git@gitlab-ssh.nrp-nautilus.io:30622/weiliu/ubuntu-coda-11.8.git
